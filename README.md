@@ -60,6 +60,12 @@ This is a basic version of a Compliance Companion app created using Flutter. The
 
 Contributions are welcome! Please fork this repository and submit pull requests.
 
+## Download
+
+You can download the latest version of the app from the link below:
+
+[Download APK]([https://github.com/username/repository/releases/download/v1.0.0/your-app.apk](https://github.com/Jaycii2808/compliance-companion-app/releases/download/v1.0.0/compliance_companion-app-release.apk))
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
