@@ -26,8 +26,8 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i269.TaskListScreenBloc>(() => _i269.TaskListScreenBloc());
     gh.factory<_i1022.HomeBloc>(() => _i1022.HomeBloc());
+    gh.factory<_i269.TaskListScreenBloc>(() => _i269.TaskListScreenBloc());
     return this;
   }
 }

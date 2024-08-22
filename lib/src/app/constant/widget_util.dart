@@ -20,3 +20,13 @@ extension PaddingExtension on Widget {
     );
   }
 }
+
+extension WidgetListExtensions on List<Widget> {
+  Row get row {
+    return Row(children: this);
+  }
+
+  Column get column {
+    return Column(children: this);
+  }
+}

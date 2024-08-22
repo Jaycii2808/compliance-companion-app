@@ -40,6 +40,11 @@ This is a basic version of a Compliance Companion app created using Flutter. The
     ```sh
     flutter packages pub run build_runner build
     ```
+   
+4. Init flash screen using flutter_native_splash:
+   ```sh
+    flutter pub run flutter_native_splash:create --flavor main
+    ```
 
 ### Running the App
 

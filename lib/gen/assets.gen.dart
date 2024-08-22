@@ -9,20 +9,73 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/ic_toggle_moon.svg
+  String get icToggleMoon => 'assets/icons/ic_toggle_moon.svg';
+
+  /// File path: assets/icons/ic_toggle_sun.svg
+  String get icToggleSun => 'assets/icons/ic_toggle_sun.svg';
+
+  /// List of all assets
+  List<String> get values => [icToggleMoon, icToggleSun];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/icon_flutter.png
+  AssetGenImage get iconFlutterPng =>
+      const AssetGenImage('assets/images/icon_flutter.png');
+
+  /// File path: assets/images/icon_flutter.svg
+  String get iconFlutterSvg => 'assets/images/icon_flutter.svg';
 
   /// File path: assets/images/img_avatar.png
   AssetGenImage get imgAvatar =>
       const AssetGenImage('assets/images/img_avatar.png');
 
+  /// File path: assets/images/img_toggle_cloud.svg
+  String get imgToggleCloud => 'assets/images/img_toggle_cloud.svg';
+
+  /// File path: assets/images/img_toggle_day_background.png
+  AssetGenImage get imgToggleDayBackgroundPng =>
+      const AssetGenImage('assets/images/img_toggle_day_background.png');
+
+  /// File path: assets/images/img_toggle_day_background.svg
+  String get imgToggleDayBackgroundSvg =>
+      'assets/images/img_toggle_day_background.svg';
+
+  /// File path: assets/images/img_toggle_night_background.png
+  AssetGenImage get imgToggleNightBackgroundPng =>
+      const AssetGenImage('assets/images/img_toggle_night_background.png');
+
+  /// File path: assets/images/img_toggle_night_background.svg
+  String get imgToggleNightBackgroundSvg =>
+      'assets/images/img_toggle_night_background.svg';
+
+  /// File path: assets/images/img_toggle_star.svg
+  String get imgToggleStar => 'assets/images/img_toggle_star.svg';
+
   /// List of all assets
-  List<AssetGenImage> get values => [imgAvatar];
+  List<dynamic> get values => [
+        iconFlutterPng,
+        iconFlutterSvg,
+        imgAvatar,
+        imgToggleCloud,
+        imgToggleDayBackgroundPng,
+        imgToggleDayBackgroundSvg,
+        imgToggleNightBackgroundPng,
+        imgToggleNightBackgroundSvg,
+        imgToggleStar
+      ];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 

@@ -1,18 +1,19 @@
+import 'package:compliance_companion/src/app/constant/date_time_util.dart';
 import 'package:compliance_companion/src/app/constant/string_util.dart';
 import 'package:compliance_companion/src/app/enum/task_status_enum.dart';
 import 'package:compliance_companion/src/data/model/task_model.dart';
 import 'package:flutter/material.dart';
 
 class TaskItem extends StatefulWidget {
-  const TaskItem(
-      {super.key,
-      this.onTap,
-      this.onLongPress,
-      this.selected = false,
-      this.dataModel,
-      this.onCheckComplete,
-      this.isLastItem = false,
-      f});
+  const TaskItem({
+    super.key,
+    this.onTap,
+    this.onLongPress,
+    this.selected = false,
+    this.dataModel,
+    this.onCheckComplete,
+    this.isLastItem = false,
+  });
 
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
@@ -43,7 +44,7 @@ class _TaskItemState extends State<TaskItem> {
       behavior: HitTestBehavior.opaque,
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
-      child:  Padding(
+      child: Padding(
         padding: const EdgeInsets.all(2.0),
         child: _buildItem(textStyle),
       ),
@@ -60,50 +61,80 @@ class _TaskItemState extends State<TaskItem> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                widget.dataModel?.title ?? '',
-                style: TextStyle(
-                  color: isCompleted ? Colors.greenAccent : Colors.black,
-                  fontSize: 18,
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 5,
+                child: Text(
+                  widget.dataModel?.title ?? '',
+                  style: TextStyle(
+                    color: isCompleted ? Colors.greenAccent : Colors.black,
+                    fontSize: 18,
+                  ),
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (widget.dataModel?.description.isNotNullOrEmpty() == true)
-                    Text(
-                      widget.dataModel?.description ?? '',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w300,
-                        decoration:
-                            isCompleted ? TextDecoration.lineThrough : null,
-                        decorationColor:
-                            isCompleted ? Colors.greenAccent : null,
-                        decorationThickness: isCompleted ? 2 : null,
+              const SizedBox(
+                width: 16,
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (widget.dataModel?.description.isNotNullOrEmpty() ==
+                        true)
+                      Text(
+                        widget.dataModel?.description ?? '',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w300,
+                          decoration:
+                              isCompleted ? TextDecoration.lineThrough : null,
+                          decorationColor:
+                              isCompleted ? Colors.greenAccent : null,
+                          decorationThickness: isCompleted ? 2 : null,
+                        ),
                       ),
-                    ),
-                  if (!isCompleted)
-                    Text(
-                      (widget.dataModel?.dueDate ?? '')
-                          .toString()
-                          .toFormattedDateTime(),
-                      style: TextStyle(
-                        color: isCompleted ? Colors.greenAccent : Colors.grey,
-                        fontSize: 12,
+                    if (!isCompleted) ...[
+                      Text(
+                        (widget.dataModel?.createDate ?? '')
+                            .toString()
+                            .toFormattedDateTime(),
+                        style: TextStyle(
+                          color: isCompleted ? Colors.greenAccent : Colors.grey,
+                          fontSize: 12,
+                        ),
                       ),
-                    ),
-                  Text(
-                    '${widget.dataModel?.status.toShortString()}',
-                    style: TextStyle(
-                      color: isCompleted ? Colors.greenAccent : Colors.grey,
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
+                      Text(
+                        '${widget.dataModel?.status.toShortString()}',
+                        style: TextStyle(
+                          color: isCompleted ? Colors.greenAccent : Colors.grey,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                    if (widget.dataModel?.doneAt != null)
+                      Row(
+                        children: [
+                          Text(
+                            '${widget.dataModel?.status.toShortString()}',
+                            style: const TextStyle(
+                              color: Colors.greenAccent,
+                              fontSize: 12,
+                            ),
+                          ),
+                          Text(
+                            " - ${(widget.dataModel?.doneAt).toString().toFormattedDateTime(dateOnly: true)}",
+                            style: TextStyle(
+                              color: isCompleted
+                                  ? Colors.greenAccent
+                                  : Colors.grey,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                  ],
+                ),
               ),
               IconButton(
                 onPressed: widget.onCheckComplete,

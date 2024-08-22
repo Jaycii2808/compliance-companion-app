@@ -31,6 +31,8 @@ class TaskListScreenBloc extends Bloc<TaskListEvent, TaskListState> {
     final updatedTask = event.currentTask.copyWith(
       isCompleted: true,
       status: TaskStatusEnum.completed,
+      endDate: event.currentTask.endDate ?? DateTime.now(),
+      doneAt: DateTime.now(),
     );
     currentState.taskList.remove(event.currentTask);
     currentState.completedTask.add(updatedTask);

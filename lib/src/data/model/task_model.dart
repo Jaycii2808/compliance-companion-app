@@ -7,39 +7,47 @@ part 'task_model.g.dart';
 class TaskModel {
   final int id;
   final String title;
-  final DateTime dueDate;
+  final DateTime createDate;
+  final DateTime? endDate;
   final TaskStatusEnum status;
   final String description;
   final String notes;
   final bool isCompleted;
+  final DateTime? doneAt;
 
   const TaskModel({
     required this.id,
     required this.title,
-    required this.dueDate,
+    required this.createDate,
+    this.endDate,
     this.status = TaskStatusEnum.inProcessing,
     this.description = '',
     this.notes = '',
     this.isCompleted = false,
+    this.doneAt,
   });
 
   TaskModel copyWith({
     int? id,
     String? title,
-    DateTime? dueDate,
+    DateTime? createDate,
+    DateTime? endDate,
     TaskStatusEnum? status,
     String? description,
     String? notes,
     bool? isCompleted,
+    DateTime? doneAt,
   }) {
     return TaskModel(
       id: id ?? this.id,
       title: title ?? this.title,
-      dueDate: dueDate ?? this.dueDate,
+      createDate: createDate ?? this.createDate,
+      endDate: endDate ?? this.endDate,
       status: status ?? this.status,
       description: description ?? this.description,
       notes: notes ?? this.notes,
       isCompleted: isCompleted ?? this.isCompleted,
+      doneAt: doneAt ?? this.doneAt,
     );
   }
 
